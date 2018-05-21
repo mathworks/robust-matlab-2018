@@ -1,4 +1,5 @@
 function trader(dataService,broker,ticker,numShares)
+% an algorithm for buying stock
 
 % Copyright 2018 MathWorks Inc.
 

@@ -1,4 +1,5 @@
 classdef ValidateProps
+    % The ValidateProps class defines three properties with validation
     
     % Copyright 2018 MathWorks Inc.
     properties
