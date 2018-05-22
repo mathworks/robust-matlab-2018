@@ -1,12 +1,32 @@
 {
   "_schemaVersion": "1.0.0",
-  "findArea":
-  {
-     "inputs":
-     [
-        {"name":"shape", "kind":"required", "type":["char", "choices={'circle','rectangle'}"], "purpose":"shape"},
-        {"name":"dim1", "kind":"required", "type":["numeric"], "purpose":"1st dimension"},
-        {"name":"dim2", "kind":"ordered", "type":["numeric"], "purpose":"2nd dimension"}
-     ]
+  "findArea": {
+    "inputs": [
+      {
+        "name": "shape",
+        "kind": "required",
+        "type": [
+          "char",
+          "choices={'circle','rectangle'}"
+        ],
+        "purpose": "shape"
+      },
+      {
+        "name": "dim1",
+        "kind": "required",
+        "type": [
+          "numeric"
+        ],
+        "purpose": "1st dimension"
+      },
+      {
+        "name": "dim2",
+        "kind": "ordered",
+        "type": [
+          "numeric"
+        ],
+        "purpose": "2nd dimension"
+      }
+    ]
   }
 }
