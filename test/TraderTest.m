@@ -1,4 +1,7 @@
 classdef TraderTest < matlab.mock.TestCase
+    
+    % Copyright 2018 MathWorks Inc.
+    
     methods(Test)
         function buysStockWhenDrops(testCase)
             import matlab.unittest.constraints.IsLessThan

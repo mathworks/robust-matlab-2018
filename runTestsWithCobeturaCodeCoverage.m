@@ -6,8 +6,7 @@ import matlab.unittest.plugins.CodeCoveragePlugin
 import matlab.unittest.plugins.codecoverage.CoberturaFormat
 
 % Define test suite
-tests = fullfile( pwd, 'TraderTest.m' );
-suite = TestSuite.fromFile( tests );
+suite = TestSuite.fromFolder( 'test' );
 
 % Create and configure the runner
 runner = TestRunner.withTextOutput('Verbosity',3);
@@ -23,4 +22,4 @@ token = '8d46bba7-22e7-4ce1-9dc5-02a052fd6b8e';
 setenv( 'CODECOV_TOKEN', token );
 
 !C:\PROGRA~1\Git\mingw64\bin\curl.exe -s https://codecov.io/bash | C:\PROGRA~1\Git\bin\bash.exe -s || - echo "Codecov did not collect coverage reports"
-web( 'https://codecov.io/gh/ppeeling/robust-matlab-2018/' )
+web( 'https://codecov.io/gh/mathworks/robust-matlab-2018/' )
