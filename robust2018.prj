@@ -1,13 +1,13 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="2412204623" file="C:\Users\ppeeling\git\robust-matlab-2018\robust2018.prj" location="C:\Users\ppeeling\git\robust-matlab-2018" name="robust2018" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="1915125618" file="C:\Users\ppeeling\robust-matlab-2018\robust2018.prj" location="C:\Users\ppeeling\robust-matlab-2018" name="robust2018" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>robust2018</param.appname>
     <param.authnamewatermark>Paul Peeling</param.authnamewatermark>
-    <param.email>paul.peeling@mathworks.co.uk</param.email>
-    <param.company>MathWorks</param.company>
-    <param.summary />
+    <param.email>ppeeling@mathworks.com</param.email>
+    <param.company>MathWorks Inc.</param.company>
+    <param.summary>Code and Examples from "Developing Robust MATLAB Code"</param.summary>
     <param.description>Code and examples accompanying the session "Developing Robust MATLAB Code" at the MATLAB Computational Finance Conference 2018</param.description>
     <param.screenshot>${PROJECT_ROOT}\finance-conference-signature.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>1.1</param.version>
     <param.output>${PROJECT_ROOT}\robust2018.mltbx</param.output>
     <param.products.name>
       <item>MATLAB</item>
@@ -16,7 +16,7 @@
       <item>1</item>
     </param.products.id>
     <param.products.version>
-      <item>9.4</item>
+      <item>9.6</item>
     </param.products.version>
     <param.platforms />
     <param.guid>0b8e6fb3-8c8e-4d92-b4a0-27e66c584354</param.guid>
@@ -52,6 +52,9 @@
     <param.matlabpath.excludes />
     <param.javaclasspath.excludes />
     <param.exported.on.package>true</param.exported.on.package>
+    <param.required.addons />
+    <param.matlab.project.id />
+    <param.matlab.project.name />
     <param.release.start>R2018a</param.release.start>
     <param.release.end>latest</param.release.end>
     <param.release.current.only>false</param.release.current.only>
@@ -59,12 +62,16 @@
     <param.compatiblity.macos>true</param.compatiblity.macos>
     <param.compatiblity.linux>true</param.compatiblity.linux>
     <param.compatiblity.matlabonline>true</param.compatiblity.matlabonline>
+    <param.installation.map />
+    <param.additional.sw.names />
+    <param.additional.sw.licenses />
+    <param.additional.sw.win.url />
+    <param.additional.sw.mac.url />
+    <param.additional.sw.linux.url />
     <unset>
       <param.authnamewatermark />
       <param.email />
       <param.company />
-      <param.summary />
-      <param.version />
       <param.output />
       <param.platforms />
       <param.exclude.filters />
@@ -73,11 +80,20 @@
       <param.registered.apps />
       <param.matlabpath.excludes />
       <param.javaclasspath.excludes />
+      <param.required.addons />
+      <param.matlab.project.id />
+      <param.matlab.project.name />
       <param.release.current.only />
       <param.compatiblity.windows />
       <param.compatiblity.macos />
       <param.compatiblity.linux />
       <param.compatiblity.matlabonline />
+      <param.installation.map />
+      <param.additional.sw.names />
+      <param.additional.sw.licenses />
+      <param.additional.sw.win.url />
+      <param.additional.sw.mac.url />
+      <param.additional.sw.linux.url />
     </unset>
     <fileset.rootdir>
       <file>${PROJECT_ROOT}\tbx</file>
@@ -93,33 +109,23 @@
     <fileset.depfun.excluded />
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\ppeeling\git\robust-matlab-2018" name="robust2018.mltbx" optional="false">C:\Users\ppeeling\git\robust-matlab-2018\robust2018.mltbx</file>
+      <file location="${PROJECT_ROOT}" name="robust2018.mltbx" optional="false">C:\Users\ppeeling\robust-matlab-2018\robust2018.mltbx</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2018a</root>
+      <root>C:\Program Files\MATLAB\R2019a</root>
       <toolboxes>
-        <toolbox name="fixedpoint" />
         <toolbox name="matlabcoder" />
-        <toolbox name="matlabhdlcoder" />
         <toolbox name="embeddedcoder" />
         <toolbox name="gpucoder" />
-        <toolbox name="polyspacebugfinder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="neuralnetwork" />
       </toolboxes>
-      <toolbox>
-        <fixedpoint>
-          <enabled>true</enabled>
-        </fixedpoint>
-      </toolbox>
       <toolbox>
         <matlabcoder>
           <enabled>true</enabled>
         </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <matlabhdlcoder>
-          <enabled>true</enabled>
-        </matlabhdlcoder>
       </toolbox>
       <toolbox>
         <embeddedcoder>
@@ -132,9 +138,19 @@
         </gpucoder>
       </toolbox>
       <toolbox>
-        <polyspacebugfinder>
+        <fixedpoint>
           <enabled>true</enabled>
-        </polyspacebugfinder>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
       </toolbox>
     </matlab>
     <platform>
