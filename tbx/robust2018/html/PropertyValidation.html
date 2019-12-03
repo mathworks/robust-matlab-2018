@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019a"><title>Sample Class Using Property Validation</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}
+.S4 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S5 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S6 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S7 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S8 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span style=' font-weight: bold;'>Sample Class Using Property Validation</span></h1><div  class = 'S1'><span>The </span><span style=' font-family: monospace;'>ValidateProps</span><span> class defines three properties with validation.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre;"><span>type </span><span style="color: rgb(160, 32, 240);">ValidateProps.m</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="9D18EE56" data-testid="output_0" data-width="430" data-height="129" data-hashorizontaloverflow="true" style="width: 460px; max-height: 261px;"><div class="textElement">classdef ValidateProps
+    
+    % Copyright 2018 MathWorks
+    properties
+        Location(1,3) double {mustBeReal, mustBeFinite}
+        Label(1,:) char {mustBeMember(Label,{'High','Medium','Low'})} = 'Low'
+        State(1,1) matlab.lang.OnOffSwitchState
+    end
+end</div></div></div></div></div><ul  class = 'S4'><li  class = 'S5'><span style=' font-family: monospace;'>Location</span><span> </span><span>must be a 1-by-3 array of class</span><span> </span><span style=' font-family: monospace;'>double</span><span> </span><span>whose values are real, finite numbers.</span></li><li  class = 'S5'><span style=' font-family: monospace;'>Label</span><span> </span><span>must be a</span><span> </span><span style=' font-family: monospace;'>char</span><span> </span><span>vector that is either</span><span> </span><span style=' font-family: monospace;'>'High'</span><span>,</span><span> </span><span style=' font-family: monospace;'>'Medium'</span><span>, or</span><span> </span><span style=' font-family: monospace;'>'Low'</span><span>.</span></li><li  class = 'S5'><span style=' font-family: monospace;'>State</span><span> </span><span>must be an enumeration member of the</span><span> </span><a href = "https://www.mathworks.com/help/releases/R2018a/matlab/ref/matlab.lang.onoffswitchstate-class.html"><span style=' font-family: monospace;'>matlab.lang.OnOffSwitchState</span></a><span> </span><span>class (</span><span style=' font-family: monospace;'>off</span><span> </span><span>or</span><span> </span><span style=' font-family: monospace;'>on</span><span>).</span></li></ul><h2  class = 'S6'><span style=' font-weight: bold;'>Validation at Instantiation</span></h2><div  class = 'S1'><span>Creating an object of the </span><span style=' font-family: monospace;'>ValidateProps</span><span> class performs the validation on implicit and explicit default values:</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre;"><span>a = ValidateProps</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="697174E4" data-testid="output_1" data-width="430" data-height="90" data-hashorizontaloverflow="false" style="width: 460px; max-height: 261px;"><div class="textElement"><div><span class="variableNameElement">a = </span></div><div>  ValidateProps with properties:
+
+    Location: [0 0 0]
+       Label: 'Low'
+       State: off
+</div></div></div></div></div></div><div  class = 'S7'><span>When creating the object, MATLAB:</span></div><ul  class = 'S4'><li  class = 'S5'><span>Initializes the</span><span> </span><span style=' font-family: monospace;'>Location</span><span> </span><span>property value to</span><span> </span><span style=' font-family: monospace;'>[0 0 0]</span><span> </span><span>to satisfy the size and class requirements.</span></li><li  class = 'S5'><span>Sets the</span><span> </span><span style=' font-family: monospace;'>Label</span><span> </span><span>property to its default value,</span><span> </span><span style=' font-family: monospace;'>'Low'</span><span>. The default value must be a member of the allowed set of values. The empty</span><span> </span><span style=' font-family: monospace;'>char</span><span> </span><span>implicit default value would cause an error.</span></li><li  class = 'S5'><span>Sets the</span><span> </span><span style=' font-family: monospace;'>State</span><span> </span><span>property to the</span><span> </span><span style=' font-family: monospace;'>off</span><span> </span><span>enumeration member defined by the </span><span style=' font-family: monospace;'>matlab.lang.OnOffSwitchState</span><span> class.</span></li></ul><h2  class = 'S6'><span>Property Validation and Errors</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre;"><span>a.Label = </span><span style="color: rgb(160, 32, 240);">'High'</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="D4973C35" data-testid="output_2" data-width="430" data-height="90" data-hashorizontaloverflow="false" style="width: 460px; max-height: 261px;"><div class="textElement"><div><span class="variableNameElement">a = </span></div><div>  ValidateProps with properties:
+
+    Location: [0 0 0]
+       Label: 'High'
+       State: off
+</div></div></div></div></div></div><div  class = 'S7'><span>The State property accepts values of </span><span style=' font-family: monospace;'>'on'</span><span> and </span><span style=' font-family: monospace;'>'off'</span><span> and logical </span><span style=' font-family: monospace;'>true</span><span>, </span><span style=' font-family: monospace;'>false</span><span>, </span><span style=' font-family: monospace;'>1</span><span>, or </span><span style=' font-family: monospace;'>0</span><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre;"><span>a.State = true</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="C7CB343B" data-testid="output_3" data-width="430" data-height="90" data-hashorizontaloverflow="false" style="width: 460px; max-height: 261px;"><div class="textElement"><div><span class="variableNameElement">a = </span></div><div>  ValidateProps with properties:
+
+    Location: [0 0 0]
+       Label: 'High'
+       State: on
+</div></div></div></div></div></div><h2  class = 'S8'><span>Property Validation Errors</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S2'><span style="white-space: pre;"><span>a.Location = [54 55]</span></span></div><div  class = 'S3'><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="C6391DF0" data-testid="output_4" data-width="430" data-height="30" data-hashorizontaloverflow="false" style="width: 460px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Error setting property 'Location' of class 'ValidateProps':<br>Size of value must match specified dimensions 1×3 or be scalar.</div><div class="diagnosticMessage-stackPart"></div></div></div></div></div></div><div  class = 'S1'><span>Copyright 2018 MathWorks Inc</span></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% *Sample Class Using Property Validation*
+% The |ValidateProps| class defines three properties with validation.
+
+type ValidateProps.m
+%% 
+% * |Location| must be a 1-by-3 array of class |double| whose values are real, 
+% finite numbers.
+% * |Label| must be a |char| vector that is either |'High'|, |'Medium'|, or 
+% |'Low'|.
+% * |State| must be an enumeration member of the <https://www.mathworks.com/help/releases/R2018a/matlab/ref/matlab.lang.onoffswitchstate-class.html 
+% |matlab.lang.OnOffSwitchState|> class (|off| or |on|).
+%% *Validation at Instantiation*
+% Creating an object of the |ValidateProps| class performs the validation on 
+% implicit and explicit default values:
+
+a = ValidateProps
+%% 
+% When creating the object, MATLAB:
+%% 
+% * Initializes the |Location| property value to |[0 0 0]| to satisfy the size 
+% and class requirements.
+% * Sets the |Label| property to its default value, |'Low'|. The default value 
+% must be a member of the allowed set of values. The empty |char| implicit default 
+% value would cause an error.
+% * Sets the |State| property to the |off| enumeration member defined by the 
+% |matlab.lang.OnOffSwitchState| class.
+%% Property Validation and Errors
+
+a.Label = 'High'
+%% 
+% The State property accepts values of |'on'| and |'off'| and logical |true|, 
+% |false|, |1|, or |0|.
+
+a.State = true
+%% Property Validation Errors
+
+a.Location = [54 55]
+%% 
+% Copyright 2018 MathWorks Inc
+##### SOURCE END #####
+--></body></html>

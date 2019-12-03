@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019a"><title>Mocking Framework</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S2 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S3 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S4 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}
+.S8 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S9 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S10 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S11 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S12 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S13 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Mocking Framework</span></h1><ol  class = 'S1'><li  class = 'S2'><span>Create mocks for the depended-on components.</span></li><li  class = 'S2'><span>Define behaviors of the mocks. </span></li><li  class = 'S2'><span>Test the component of interest.</span></li><li  class = 'S2'><span>Qualify interactions between the component of interest and the mocked components. </span></li></ol><h2  class = 'S3'><span>Stubbing - define behaviour</span></h2><h2  class = 'S3'><span>Spying - intercept and remember </span></h2><div  class = 'S4'><span>Create a mock test case for interactive use. </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>import </span><span style="color: rgb(160, 32, 240);">matlab.mock.TestCase</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>testCase = TestCase.forInteractiveUse</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="0C3655C8" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="34" data-hashorizontaloverflow="false" data-testid="output_0" style="max-height: 261px; width: 460px;"><div class="textElement"><div><span class="variableNameElement">testCase = </span></div><div>  InteractiveTestCase with no properties.
+</div></div></div></div></div></div><h2  class = 'S8'><span>Depended on Components</span></h2><div  class = 'S4'><span>The day-trading algorithm has two dependencies: a data service to retrieve the stock price data and a broker to purchase the stock.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre;"><span>type </span><span style="color: rgb(160, 32, 240);">DataService.m</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="CC1AD2B6" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="115" data-hashorizontaloverflow="false" data-testid="output_1" style="max-height: 261px; width: 460px;"><div class="textElement">classdef DataService
+    % a data service to retrieve the stock price data
+    
+    % Copyright 2018 MathWorks Inc.   
+    methods (Abstract,Static)
+        price = lookupPrice(ticker,date)
+    end
+end</div></div></div></div></div><div  class = 'S10'><span>In production code, there could be several concrete implementations of the </span><span style=' font-family: monospace;'>DataService</span><span> class, such as a</span><span> </span><span style=' font-family: monospace;'>BloombergDataService</span><span> class. </span></div><h2  class = 'S8'><span>Create Stub to Define Behavior</span></h2><div  class = 'S4'><span>Create a mock for the data service dependency. The data service mock returns predefined values.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>[stubDataService,dataServiceBehavior] = createMock(testCase,?DataService);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>methods(stubDataService)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="6601D8ED" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="101" data-hashorizontaloverflow="false" data-testid="output_2" style="max-height: 261px; width: 460px;"><div class="textElement">Methods for class matlab.mock.classes.DataServiceMock:
+
+
+
+Static methods:
+
+lookupPrice  </div></div></div></div></div><div  class = 'S10'><span>In the</span><span> </span><span style=' font-family: monospace;'>DataService</span><span> class, the</span><span> </span><span style=' font-family: monospace;'>lookupPrice</span><span> method is abstract and static. The mocking framework implements this method as concrete and static.</span></div><div  class = 'S4'><span>Define behavior for the data service mock.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>import </span><span style="color: rgb(160, 32, 240);">matlab.unittest.constraints.IsLessThan</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>yesterday = datetime(</span><span style="color: rgb(160, 32, 240);">'yesterday'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(</span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,yesterday),123);</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(</span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,IsLessThan(yesterday)),234);</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(</span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">"BAR"</span><span>,yesterday),765);</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(</span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S12'><span style="white-space: pre;"><span>    </span><span style="color: rgb(160, 32, 240);">"BAR"</span><span>,IsLessThan(yesterday)),543);</span></span></div></div></div><div  class = 'S4'><span>You can now call the mocked</span><span> </span><span style=' font-family: monospace;'>lookupPrice</span><span> method.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre;"><span>p1 = stubDataService.lookupPrice(</span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,yesterday)</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>p1 = 123</div></div></div><div class="inlineWrapper outputs"><div  class = 'S13'><span style="white-space: pre;"><span>p2 = stubDataService.lookupPrice(</span><span style="color: rgb(160, 32, 240);">"BAR"</span><span>,yesterday-days(5))</span></span></div><div  class = 'S7'><div class='variableElement' style='font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px; '>p2 = 543</div></div></div></div><h2  class = 'S8'><span>Create Spy to Intercept Messages</span></h2><div  class = 'S4'><span>Create a mock for the broker dependency.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>[spyBroker,brokerBehavior] = createMock(testCase,</span><span style="color: rgb(160, 32, 240);">'AddedMethods'</span><span>,{</span><span style="color: rgb(160, 32, 240);">'buy'</span><span>});</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>methods(spyBroker)</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="73C0C1BE" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="45" data-hashorizontaloverflow="false" data-testid="output_5" style="max-height: 261px; width: 460px;"><div class="textElement">Methods for class matlab.mock.classes.Mock_1:
+
+buy  </div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S13'><span style="white-space: pre;"><span>s2 = spyBroker.buy(</span><span style="color: rgb(160, 32, 240);">"inputs"</span><span>,[13 42])</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="0D9D5FDB" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="45" data-hashorizontaloverflow="false" data-testid="output_6" style="max-height: 261px; width: 460px;"><div class="textElement">s2 =
+
+     []</div></div></div></div></div><h2  class = 'S8'><span>Call Component Under Test</span></h2><div  class = 'S4'><span>Call the</span><span> </span><span style=' font-family: monospace;'>trader</span><span> function. Pass in the</span><span> </span><span style=' font-family: monospace;'>spyBroker</span><span> and</span><span> </span><span style=' font-family: monospace;'>stubDataService</span><span> mocks.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>trader(stubDataService,spyBroker,</span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,100)</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>trader(stubDataService,spyBroker,</span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,75)</span></span></div></div><div class="inlineWrapper"><div  class = 'S12'><span style="white-space: pre;"><span>trader(stubDataService,spyBroker,</span><span style="color: rgb(160, 32, 240);">"BAR"</span><span>,100)</span></span></div></div></div><h2  class = 'S8'><span>Verify Function Interactions</span></h2><div  class = 'S4'><span>Use the broker behavior object (the spy) to verify that the</span><span> </span><span style=' font-family: monospace;'>trader</span><span> function calls the</span><span> </span><span style=' font-family: monospace;'>buy</span><span> method, as expected.</span></div><div  class = 'S4'><span>Use the</span><span> </span><span style=' font-family: monospace;'>TestCase.verifyCalled</span><span> method to verify that the</span><span> </span><span style=' font-family: monospace;'>trader</span><span> function instructed the</span><span> </span><span style=' font-family: monospace;'>buy</span><span> method to buy 100 shares of the</span><span> </span><span style=' font-family: monospace;'>FOO</span><span> stock.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>import </span><span style="color: rgb(160, 32, 240);">matlab.mock.constraints.WasCalled</span><span>;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>testCase.verifyCalled(brokerBehavior.buy(</span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,100))</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="7C12D1D5" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="18" data-hashorizontaloverflow="false" data-testid="output_7" style="max-height: 261px; width: 460px;"><div class="textElement">Interactive verification passed.</div></div></div></div></div><div  class = 'S4'><span>Verify that</span><span> </span><span style=' font-family: monospace;'>FOO</span><span> stock was purchased two times, regardless of the specified number of shares. While the</span><span> </span><span style=' font-family: monospace;'>verifyCalled</span><span> method is convenient to specify behavior, there is more functionality if you use the</span><span> </span><span style=' font-family: monospace;'>WasCalled</span><span> constraint. For example, you can verify that a mocked method was called a specified number of times.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>import </span><span style="color: rgb(160, 32, 240);">matlab.unittest.constraints.IsAnything</span></span></div></div><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre;"><span>testCase.verifyThat(brokerBehavior.buy(</span><span style="color: rgb(160, 32, 240);">"FOO"</span><span>,IsAnything), </span><span style="color: rgb(0, 0, 255);">...</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>    WasCalled(</span><span style="color: rgb(160, 32, 240);">'WithCount'</span><span>,2))</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="748D66D9" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="18" data-hashorizontaloverflow="false" data-testid="output_8" style="max-height: 261px; width: 460px;"><div class="textElement">Interactive verification passed.</div></div></div></div></div><div  class = 'S4'><span>Verify that the</span><span> </span><span style=' font-family: monospace;'>buy</span><span> method was not called requesting 100 shares of the</span><span> </span><span style=' font-family: monospace;'>BAR</span><span> stock.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre;"><span>testCase.verifyNotCalled(brokerBehavior.buy(</span><span style="color: rgb(160, 32, 240);">"BAR"</span><span>,100))</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="D463B835" data-scroll-top="null" data-scroll-left="null" data-width="430" data-height="18" data-hashorizontaloverflow="false" data-testid="output_9" style="max-height: 261px; width: 460px;"><div class="textElement">Interactive verification passed.</div></div></div></div></div><div  class = 'S10'><span>Although the</span><span> </span><span style=' font-family: monospace;'>trader</span><span> function was called requesting 100 shares of</span><span> </span><span style=' font-family: monospace;'>BAR</span><span> stock, the stub defined yesterday's price for</span><span> </span><span style=' font-family: monospace;'>BAR</span><span> to return a higher value than all days prior to yesterday. Therefore, the broker never buys stock</span><span> </span><span style=' font-family: monospace;'>"BAR"</span><span>.</span></div><div  class = 'S4'><span>Copyright 2018 MathWorks Inc.</span></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Mocking Framework
+%% 
+% # Create mocks for the depended-on components.
+% # Define behaviors of the mocks. 
+% # Test the component of interest.
+% # Qualify interactions between the component of interest and the mocked components. 
+%% Stubbing - define behaviour
+%% Spying - intercept and remember 
+% Create a mock test case for interactive use. 
+
+import matlab.mock.TestCase
+testCase = TestCase.forInteractiveUse
+%% Depended on Components
+% The day-trading algorithm has two dependencies: a data service to retrieve 
+% the stock price data and a broker to purchase the stock.
+
+type DataService.m
+%% 
+% In production code, there could be several concrete implementations of the 
+% |DataService| class, such as a |BloombergDataService| class. 
+%% Create Stub to Define Behavior
+% Create a mock for the data service dependency. The data service mock returns 
+% predefined values.
+
+[stubDataService,dataServiceBehavior] = createMock(testCase,?DataService);
+methods(stubDataService)
+%% 
+% In the |DataService| class, the |lookupPrice| method is abstract and static. 
+% The mocking framework implements this method as concrete and static.
+%% 
+% Define behavior for the data service mock.
+
+import matlab.unittest.constraints.IsLessThan
+yesterday = datetime('yesterday');
+
+testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(...
+    "FOO",yesterday),123);
+testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(...
+    "FOO",IsLessThan(yesterday)),234);
+
+testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(...
+    "BAR",yesterday),765);
+testCase.assignOutputsWhen(dataServiceBehavior.lookupPrice(...
+    "BAR",IsLessThan(yesterday)),543);
+%% 
+% You can now call the mocked |lookupPrice| method.
+
+p1 = stubDataService.lookupPrice("FOO",yesterday)
+p2 = stubDataService.lookupPrice("BAR",yesterday-days(5))
+%% Create Spy to Intercept Messages
+% Create a mock for the broker dependency.
+
+[spyBroker,brokerBehavior] = createMock(testCase,'AddedMethods',{'buy'});
+methods(spyBroker)
+s2 = spyBroker.buy("inputs",[13 42])
+%% Call Component Under Test
+% Call the |trader| function. Pass in the |spyBroker| and |stubDataService| 
+% mocks.
+
+trader(stubDataService,spyBroker,"FOO",100)
+trader(stubDataService,spyBroker,"FOO",75)
+trader(stubDataService,spyBroker,"BAR",100)
+%% Verify Function Interactions
+% Use the broker behavior object (the spy) to verify that the |trader| function 
+% calls the |buy| method, as expected.
+% 
+% Use the |TestCase.verifyCalled| method to verify that the |trader| function 
+% instructed the |buy| method to buy 100 shares of the |FOO| stock.
+
+import matlab.mock.constraints.WasCalled;
+testCase.verifyCalled(brokerBehavior.buy("FOO",100))
+%% 
+% Verify that |FOO| stock was purchased two times, regardless of the specified 
+% number of shares. While the |verifyCalled| method is convenient to specify behavior, 
+% there is more functionality if you use the |WasCalled| constraint. For example, 
+% you can verify that a mocked method was called a specified number of times.
+
+import matlab.unittest.constraints.IsAnything
+testCase.verifyThat(brokerBehavior.buy("FOO",IsAnything), ...
+    WasCalled('WithCount',2))
+%% 
+% Verify that the |buy| method was not called requesting 100 shares of the |BAR| 
+% stock.
+
+testCase.verifyNotCalled(brokerBehavior.buy("BAR",100))
+%% 
+% Although the |trader| function was called requesting 100 shares of |BAR| stock, 
+% the stub defined yesterday's price for |BAR| to return a higher value than all 
+% days prior to yesterday. Therefore, the broker never buys stock |"BAR"|.
+%% 
+% Copyright 2018 MathWorks Inc.
+##### SOURCE END #####
+--></body></html>
